@@ -1,5 +1,5 @@
 <mvc:View
-	controllerName="koeln.markus.dartsTrainer.controller.Home"
+	controllerName="sap.ui.demo.basicTemplate.controller.Home"
 	displayBlock="true"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">

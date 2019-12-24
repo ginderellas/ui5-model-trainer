@@ -7,7 +7,7 @@ sap.ui.define([
 
 	Opa5.extendConfig({
 		arrangements: new Startup(),
-		viewNamespace: "koeln.markus.dartsTrainer.view.",
+		viewNamespace: "sap.ui.demo.basicTemplate.view.",
 		autoWait: true
 	});
 });
