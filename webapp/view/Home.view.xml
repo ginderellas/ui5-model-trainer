@@ -8,8 +8,8 @@
 				<sap.ui.layout.form:content>
 					<core:Title text="{i18n>form.title}" id="formTitle" />
 					<Label id="labelFileUploader" text="{i18n>label.fileUploader}" />
-					<u:FileUploader id="fileUploader" buttonOnly="true" name="myFileUpload" uploadUrl="upload.php"
-						uploadOnChange="false" uploadComplete="handleUploadComplete" />
+					<u:FileUploader id="fileUploader" buttonOnly="false" name="myFileUpload" uploadUrl="upload.php"
+						uploadOnChange="false" uploadComplete="handleUploadComplete" width="100%"/>
 
 
 					<Label text="{i18n>label.firstThrow}" id="labelFirstThrow" />

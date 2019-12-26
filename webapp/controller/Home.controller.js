@@ -3,7 +3,8 @@ sap.ui.define([
 	"../model/formatter",
 	"sap/ui/model/json/JSONModel",
 	"sap/m/Dialog",
-], function (Controller, formatter, JSONModel, Dialog) {
+	"sap/m/Button"
+], function (Controller, formatter, JSONModel, Dialog, Button) {
 	"use strict";
 
 	return Controller.extend("sap.ui.demo.basicTemplate.controller.App", {
@@ -75,6 +76,7 @@ sap.ui.define([
 			}
 
 			//Daten hochladen
+			oUploader.setBusy(true);
 			oUploader.upload();
 		},
 
@@ -85,10 +87,15 @@ sap.ui.define([
 		_resetView: function () {
 			this.resetModel();
 			this.byId("fileUploader").clear();
+			this.byId("fileUploader").setBusy(false);
 		},
 
 		handleUploadComplete: function (oEvent) {
+			let oFileUploader = this.byId("fileUploader");
+			oFileUploader.setBusy(false);
+
 			let oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
+
 			let sStatus = oEvent.getParameter("status");
 			if (sStatus.startsWith("2")) {
 
