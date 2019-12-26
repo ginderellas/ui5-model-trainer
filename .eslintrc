@@ -1,10 +1,11 @@
 {
 	"env": {
-		"browser": true
+		"browser": true,
+		"es6": true 
 	},
 	"globals": {
 		"sap": true,
-		"jQuery": true
+		"jQuery": true,
 	},
 	"rules": {
 		"block-scoped-var": 1,

@@ -1,11 +1,57 @@
-<mvc:View
-	controllerName="sap.ui.demo.basicTemplate.controller.Home"
-	displayBlock="true"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc">
-	<Page
-		id="page"
-		title="{i18n>title}">
-		<content></content>
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified"
+	xmlns:core="sap.ui.core" controllerName="sap.ui.demo.basicTemplate.controller.Home" displayBlock="true">
+	<Page id="page" title="{i18n>title}">
+		<content>
+
+			<sap.ui.layout.form:SimpleForm editable="true" layout="ResponsiveGridLayout"
+				xmlns:sap.ui.layout.form="sap.ui.layout.form" id="formKlassifizierung">
+				<sap.ui.layout.form:content>
+					<core:Title text="{i18n>form.title}" id="formTitle" />
+					<Label id="labelFileUploader" text="{i18n>label.fileUploader}" />
+					<u:FileUploader id="fileUploader" buttonOnly="true" name="myFileUpload" uploadUrl="upload.php"
+						uploadOnChange="false" uploadComplete="handleUploadComplete" />
+
+
+					<Label text="{i18n>label.firstThrow}" id="labelFirstThrow" />
+					<Select forceSelection="false" selectedKey="{/Input/0/Factor}" items="{
+						path: '/ThrowFactors',
+						sorter: { path: 'Name' }
+					}">
+						<core:Item key="{Id}" text="{Name}" />
+					</Select>
+					<Input id="input0Amount" value="{/Input/0/Amount}" liveChange="onAmountChange" />
+
+					<Label text="{i18n>label.secondThrow}" id="labelSecondThrow" />
+					<Select forceSelection="false" selectedKey="{/Input/1/Factor}" items="{
+						path: '/ThrowFactors',
+						sorter: { path: 'Name' }
+					}">
+						<core:Item key="{Id}" text="{Name}" />
+					</Select>
+					<Input id="input1Amount" value="{/Input/1/Amount}" liveChange="onAmountChange" />
+
+					<Label text="{i18n>label.thirdThrow}" id="labelThirdThrow" />
+					<Select forceSelection="false" selectedKey="{/Input/2/Factor}" items="{
+						path: '/ThrowFactors',
+						sorter: { path: 'Name' }
+					}">
+						<core:Item key="{Id}" text="{Name}" />
+					</Select>
+					<Input id="input2Amount" value="{/Input/2/Amount}" liveChange="onAmountChange" />
+
+
+				</sap.ui.layout.form:content>
+			</sap.ui.layout.form:SimpleForm>
+
+
+		</content>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="submitButton" text="{i18n>button.submit}" press="onSubmitPress" type="Accept" />
+					<Button id="rejectButton" text="{i18n>button.reject}" press="onRejectPress" type="Reject" />
+				</contentRight>
+			</Bar>
+		</footer>
 	</Page>
 </mvc:View>
