@@ -9,7 +9,16 @@
 					<core:Title text="{i18n>form.title}" id="formTitle" />
 					<Label id="labelFileUploader" text="{i18n>label.fileUploader}" />
 					<u:FileUploader id="fileUploader" buttonOnly="false" name="myFileUpload" uploadUrl="upload.php"
-						uploadOnChange="false" uploadComplete="handleUploadComplete" width="100%"/>
+						uploadOnChange="false" uploadComplete="handleUploadComplete" width="100%">
+						<u:parameters>
+							<u:FileUploaderParameter name="factor0" value="{/Input/0/Factor}" />
+							<u:FileUploaderParameter name="factor1" value="{/Input/1/Factor}" />
+							<u:FileUploaderParameter name="factor2" value="{/Input/2/Factor}" />
+							<u:FileUploaderParameter name="Amount0" value="{/Input/0/Amount}" />
+							<u:FileUploaderParameter name="Amount1" value="{/Input/1/Amount}" />
+							<u:FileUploaderParameter name="Amount2" value="{/Input/2/Amount}" />
+						</u:parameters>
+					</u:FileUploader>
 
 
 					<Label text="{i18n>label.firstThrow}" id="labelFirstThrow" />

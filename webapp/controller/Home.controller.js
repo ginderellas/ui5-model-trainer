@@ -3,8 +3,10 @@ sap.ui.define([
 	"../model/formatter",
 	"sap/ui/model/json/JSONModel",
 	"sap/m/Dialog",
-	"sap/m/Button"
-], function (Controller, formatter, JSONModel, Dialog, Button) {
+	"sap/m/Button",
+	"sap/m/ButtonType",
+	"sap/m/Text"
+], function (Controller, formatter, JSONModel, Dialog, Button, ButtonType, Text) {
 	"use strict";
 
 	return Controller.extend("sap.ui.demo.basicTemplate.controller.App", {
@@ -86,8 +88,7 @@ sap.ui.define([
 
 		_resetView: function () {
 			this.resetModel();
-			this.byId("fileUploader").clear();
-			this.byId("fileUploader").setBusy(false);
+			this._initFileUploader();
 		},
 
 		handleUploadComplete: function (oEvent) {
@@ -128,6 +129,14 @@ sap.ui.define([
 			});
 
 			oDialog.open();
+		},
+
+		_initFileUploader: function() {
+			let oFileUploader = this.byId("fileUploader");
+
+			oFileUploader.clear();
+			oFileUploader.setBusy(false);
+			oFileUploader.setFileType(["jpg", "png", "bmp"]);
 		}
 	});
 });
